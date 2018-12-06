@@ -55,3 +55,49 @@ photo: svg-canvas.jpg and svg-within-svg.jpg
 We can make a path by svg. photo: svg-path.jpg  (in the photo M means move without drawing a line, and L means move with drawing a line, also d means data)
 
 photo: svg-closed-path.JPG  in this photo Z means close the path.
+
+__3D visualization:__ in some cases we will have to use 3D visualization.
+
+__Photorealism:__ It describes the cues that tell our perceptual system that when it sees a two-dimensional image it sees a depiction of a 3 dimensional picture.
+photo: photo-realism.jpg
+
+__Illumination:__ it has two types.
+
+1) Diffuse illumination: shows brighter surface when facing a light source.
+
+2)Specular illumination: reflects light anywhere on the surface that faces the light.
+photo: illumination.jpg
+
+__Occlusion:__ We use this technique to hide some elements behind others, to convince the viewers that the photo is 3d and noto 2d.
+
+There are other techniques for photorealism, such as perspective, or shadowing.
+
+__Non-photorealism:__ in computer graphics most of the time we don't want to illustrate exactly like photos because it would be useless. but instead we use a non-photorealism technique. here is an example of how to illustrate human hears without showing so many aspects of the real photo.    (non-photorealism.jpg)
+
+We can sometimes use a cartoonish illustration that shows the same message and perception from the real photo illustration. like this example: photorealism-vs-non-photorealism.jpg
+
+For making a non-photorealistic illustration, we can use __Silhouette Curves__ that are the border between the element body and the background.
+
+In the case of photorealism sometimes we can't see so much of the object because of lighting and beingn dark in shadow side, but we can use non-photorealism to make it lighter to be able to be seen more. like this photo: photo-vs-nonphoto-realism-lighting.jpg
+
+here are some examples:  photo-vs-nonphoto-example-1.jpg  photo-vs-nonphoto-example-2.JPG
+
+__How does human beings understand and respond to data visualization?__
+
+There are 3 types of reasoning:
+
+1) Deductive reasoning: making valid, logical conclusions based on visualized data. if A then B.
+2) Inductive reasoning: if it is true for a case it will be true for all of the cases. it is called Generalization. or find missing points between two points that we extrapolate and guess their values.
+3) Abductive reasoning: when we ask why? then we make a model based on the data, for example a linear regression. then we can conclude based on that. in this case we don't need to know the data for every single point. (prediction)
+
+__Intersting:__ most of people see the red closer than the blue.
+
+
+- 10% of males are colour blind. it's a good idea to add some  more information to the visualization so that color blind people could also understand it.
+- pay attention to contrasts. neighboring colors should have different brightnesses so that people could better see them.
+- (nice test [here](http://www.rpdms.com/satillusion/))
+- use warm colors in front and cool colors in background.
+
+There are some techniques for getting people to see some shapes bigger, or birghter, or smaller, etc. based on perceptual delusion. this section was so interesting : "[Perceiving Two Dimensions](https://www.coursera.org/learn/datavisualization/lecture/BuZbn/1-3-5-perceiving-two-dimensions)"
+
+In order to use 3d visualization, we tend to use them as minimal as possible, instead using 2d but onyl if it's necessary we will use 3d.
