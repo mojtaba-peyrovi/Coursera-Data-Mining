@@ -101,3 +101,37 @@ __Intersting:__ most of people see the red closer than the blue.
 There are some techniques for getting people to see some shapes bigger, or birghter, or smaller, etc. based on perceptual delusion. this section was so interesting : "[Perceiving Two Dimensions](https://www.coursera.org/learn/datavisualization/lecture/BuZbn/1-3-5-perceiving-two-dimensions)"
 
 In order to use 3d visualization, we tend to use them as minimal as possible, instead using 2d but onyl if it's necessary we will use 3d.
+
+### Week 2: Visualization of Numerical Data
+
+Data visualization has 3 layers:
+1) **Data Layer:** obtaining and collecting data, and making sure the data is in proper format, and also having some aggregation and analysis on it.
+2) **Mappling Layer:** associating the appropriate geometry with corresponding data channels, and analysis.
+3) **Graphics Layer:** Conversion of geometries into graphical image decorations in a displayable way.
+
+__Data Types:__ There are different types of data that we can see in the photo called: data-types.jpg
+
+
+Ordered: means you can be 1 is greater than 2 or unodrdered means circle can't be greater that rectangle.
+
+there are 3 important types of data 1) Nominal   2) ordered 3) quantitative
+
+__Data Mapping:__ when we mapp data we figure out how to convert data into some primitive graphics that we can display and it depends on our understanding of data and the graphics.
+
+let's learn how to mapp quantitative data:  photo: mapping-quantitative-values-1.jpg
+
+__Ordinal values:__ categorical data we don't know how much they are greater that each other but we know some of them are greater that the others. like shirt sizes.
+
+
+__Nominal values:__ categorical data we  know how much they are greater that each other but we know some of them are greater that the others.
+(photo: mapping-quantitative-ordinal-nominal.jpg)
+
+**Bar Charts:** in bar charts we have discrete data as X and quantitative data as Y.
+
+**Line Charts:** It's useful to have to for showing quantitative values for both X and Y. X better to be independent and Y dependent.
+
+**Scatter plot:** It can be used when we want to show quantitative, independent data for bot X,Y.
+
+**Gantt Chart:** looks like horizontal bar charts but its use is mostly to show consequent data and showing progress. It is also independent-independent. the X is mostly used for time.
+
+** Tables:** used for discrete per discrete view. when we have X and Y independent.
