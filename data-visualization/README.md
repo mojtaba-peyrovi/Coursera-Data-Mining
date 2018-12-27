@@ -65,7 +65,7 @@ __Illumination:__ it has two types.
 
 1) Diffuse illumination: shows brighter surface when facing a light source.
 
-2)Specular illumination: reflects light anywhere on the surface that faces the light.
+2)Specular illumination: reflects light anywhere on the surface that faces the light. 
 photo: illumination.jpg
 
 __Occlusion:__ We use this technique to hide some elements behind others, to convince the viewers that the photo is 3d and noto 2d.
@@ -76,7 +76,7 @@ __Non-photorealism:__ in computer graphics most of the time we don't want to ill
 
 We can sometimes use a cartoonish illustration that shows the same message and perception from the real photo illustration. like this example: photorealism-vs-non-photorealism.jpg
 
-For making a non-photorealistic illustration, we can use __Silhouette Curves__ that are the border between the element body and the background.
+For making a non-photorealistic illustration, we can use __Silhouette Curves__ that are the border between the element body and the background. 
 
 In the case of photorealism sometimes we can't see so much of the object because of lighting and beingn dark in shadow side, but we can use non-photorealism to make it lighter to be able to be seen more. like this photo: photo-vs-nonphoto-realism-lighting.jpg
 
@@ -101,6 +101,7 @@ __Intersting:__ most of people see the red closer than the blue.
 There are some techniques for getting people to see some shapes bigger, or birghter, or smaller, etc. based on perceptual delusion. this section was so interesting : "[Perceiving Two Dimensions](https://www.coursera.org/learn/datavisualization/lecture/BuZbn/1-3-5-perceiving-two-dimensions)"
 
 In order to use 3d visualization, we tend to use them as minimal as possible, instead using 2d but onyl if it's necessary we will use 3d.
+
 
 ### Week 2: Visualization of Numerical Data
 
@@ -135,3 +136,143 @@ __Nominal values:__ categorical data we  know how much they are greater that eac
 **Gantt Chart:** looks like horizontal bar charts but its use is mostly to show consequent data and showing progress. It is also independent-independent. the X is mostly used for time.
 
 ** Tables:** used for discrete per discrete view. when we have X and Y independent.
+
+
+### Week 3: Visualization of Non-Numerical Data
+
+The aim is to visualize data when we don't have specific coordinates associated with the data.
+
+
+When we don't have coordinates for data, we mostly look for RELATIONSHIP between data rather than the data items themselves.
+
+A graph consists of :
+
+```
+1) nodes
+2) edges
+```
+
+__Complete Graph or Clique:__
+
+When we have all the nodes connected to each other. (photo: clique.jpg)
+
+
+__Isomorphic graphs:__ When we have identical graphs, which are laid out a bit differently. (photo: isomorphic.jpg)
+
+__Planer graph:__ When the graph is laid out in a way that none of the edges cross each other. in isomorphic photo, the right graph is isomorphic.
+
+__Face:__ it's a region sided by different edges.
+
+IF we see the whole image of two graphs as one graph, we can say we have a graph of two __CONNECTED COMPONENTS.__ but they are disconnected.
+
+There are different types of graphs we can see in the photo: (graph-types.jpg)
+
+__Degree of a node:__ The number of edges connected to the node.
+
+__in-degree vs out-degree nodes:__ in deirected graphs the number of edges coming into the node are called in-degree and the number of edges getting out of the degree will br out-degree.
+
+__Adjacency matrix:__ it is a square matrix, showing the relationship between all nodes. of course the degree of the matrix equals the number of nodes.
+
+##### IMPORTANT: If the graph is non-directed, the adjacency matrix would be symmetric, whereas directed graphs have asymmetric adj. matrices.
+
+(photo: adjacency-matrix.jpg)
+
+
+__planer vs non-planer graphs:__ As mentioned before, planer graphs are made in a way which none of the edges cross each other. non-planer graphs don't have the advantage. SO, the act of adding the planer graph will be called __"Planer Embedding"__.
+
+(photo: planer-embedding.jpg)
+
+
+#### Tutte method: 
+It is a method of drawing planer graphs. the photo shows an example: (photo: tutte.jpg)
+
+IN order to do this we will have to define a matrix called __"Laplacian Matrix- /lap-la-shen"__. this matrix's degree equals the number of nodes. so in case of the cube, the degree would be 8. 
+
+each node has 3 edges in this case, so for each node to the node next to it, the value in the matrix would be 0 if there is no edge, and 1/3 if there is an edge.  photo( laplacian.jpg)  
+
+Then we need to do two steps:
+
+```
+1- for the nodes we already assigned (we said first we assign nodes 1,2,3,4) we make them all the row zero.
+2- then we calculate a new matrix that we call it A=I-L  where I is identity matrix (all values zero excpet the diagonal values which would be ones)
+```
+
+(photo: matrix-a.jpg)
+
+Now in order to find the X value for the rest of the graph, we will make a linear system and we solve an equation. It will return us the x values of the missing point. we will do the same thing for y values. 
+
+(photo: laplacian-x-values.jpg and laplacian-y-values.jpg)
+
+After extracing these equations, we can vectorize them like this:  photo: vectorized-laplacian-equations.jpg
+
+And finally we solve the equation and we get the following shape: laplacian-solved.jpg
+
+
+#### Conclusion from Tutt method:
+In order to make a graph planer, we don't need to necessarily follow the whole matrix representation and deal with all difficult and time consuming process. Instead, we can easily do this:
+
+```
+Nail donwn some of the nodes, then for the rest of the nodes, calculate their position in the way that for each node, the position would be the average of its neighbors.
+````
+
+#### GEM Force Directed Layout:
+Another way to make planer graphs, is called GEM. 
+we can see an example here:
+
+(photo: GEM.jpg)
+
+
+__Centralities:__ There is a rule that says the nodes with higher degrees will be positioned around the center, whereas, the ones with lower degrees will position toward the periphery(حاشیه).
+
+__Isolation Metric:__ sum of distance between the given node to all other nodes.
+
+__Distance:__ The distance between two nods, will be the count of edges making the shortest route to the second node.
+
+(photo: centralities.jpg)
+
+__Betweenness centrality:__ It is a metric that returns all shortest paths between any two nodes that pass through the given node.
+
+In order to simplify graphs, we can remove the edges that have few shortest paths going through them. the result would be a graphs that has as many edges and the nodes.
+we can see the sample here:  photo: graph-simplification.jpg
+
+#### Edge Bundles technique:
+
+In this way, we put all the nodes in a ring. Then we draw the edges between the nodes, inside the ring.
+
+This example show this method. The shape on the left side, shows the emails between 132 employees on a month. 
+
+(photo: edge-bundle.jpg)
+
+In order to group some the edges together to form __Wire Bundles__, we need to find communities among nodes and form clusters of nodes called __Communities__. In order to have communities, we will isolate nodes which have similar edges behavior and they make clusters.
+
+(photo: community-discovery.jpg)
+
+Then inside the graph, there will be __Community Nodes__ that are not part of the original graph, but they show merging of the nodes in each community.
+
+Example: 
+
+photo: edge-bundle-ezample-1.jpg
+
+edge-bundle-ezample-2.JPG
+
+__Filtering Edge Bundle:__ By using edge bundles, we can filter the relationships between different nodes, and it give very good information on what's going on in the dataset. 
+
+(photo: filtering-edge-bundle.jpg)
+
+
+### Tree Map:
+
+Tree map is a very useful method to show hierarchical relationships.
+
+photo: tree-map.jpg & tree-example-1.jpg  & tree-example-2.JPG 
+
+
+__Here is how we draw and treemap based on a tree graph:__
+
+photo: trremap-layout.jpg
+
+Also, this photo shows how we calculate the contribution ratio of each node:
+
+photo: treemap-calculation.jpg
+
+Tree maps are good to show hierarchical relationships, but not great for ordinal relationships. 
