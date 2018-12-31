@@ -1,3 +1,4 @@
+
 # Coursera Course for Data Mining:
 
 
@@ -65,7 +66,7 @@ __Illumination:__ it has two types.
 
 1) Diffuse illumination: shows brighter surface when facing a light source.
 
-2)Specular illumination: reflects light anywhere on the surface that faces the light. 
+2)Specular illumination: reflects light anywhere on the surface that faces the light.
 photo: illumination.jpg
 
 __Occlusion:__ We use this technique to hide some elements behind others, to convince the viewers that the photo is 3d and noto 2d.
@@ -76,7 +77,7 @@ __Non-photorealism:__ in computer graphics most of the time we don't want to ill
 
 We can sometimes use a cartoonish illustration that shows the same message and perception from the real photo illustration. like this example: photorealism-vs-non-photorealism.jpg
 
-For making a non-photorealistic illustration, we can use __Silhouette Curves__ that are the border between the element body and the background. 
+For making a non-photorealistic illustration, we can use __Silhouette Curves__ that are the border between the element body and the background.
 
 In the case of photorealism sometimes we can't see so much of the object because of lighting and beingn dark in shadow side, but we can use non-photorealism to make it lighter to be able to be seen more. like this photo: photo-vs-nonphoto-realism-lighting.jpg
 
@@ -183,10 +184,10 @@ __planer vs non-planer graphs:__ As mentioned before, planer graphs are made in 
 (photo: planer-embedding.jpg)
 
 
-#### Tutte method: 
+#### Tutte method:
 It is a method of drawing planer graphs. the photo shows an example: (photo: tutte.jpg)
 
-IN order to do this we will have to define a matrix called __"Laplacian Matrix- /lap-la-shen"__. this matrix's degree equals the number of nodes. so in case of the cube, the degree would be 8. 
+IN order to do this we will have to define a matrix called __"Laplacian Matrix- /lap-la-shen"__. this matrix's degree equals the number of nodes. so in case of the cube, the degree would be 8.
 
 each node has 3 edges in this case, so for each node to the node next to it, the value in the matrix would be 0 if there is no edge, and 1/3 if there is an edge.  photo( laplacian.jpg)  
 
@@ -199,7 +200,7 @@ Then we need to do two steps:
 
 (photo: matrix-a.jpg)
 
-Now in order to find the X value for the rest of the graph, we will make a linear system and we solve an equation. It will return us the x values of the missing point. we will do the same thing for y values. 
+Now in order to find the X value for the rest of the graph, we will make a linear system and we solve an equation. It will return us the x values of the missing point. we will do the same thing for y values.
 
 (photo: laplacian-x-values.jpg and laplacian-y-values.jpg)
 
@@ -216,7 +217,7 @@ Nail donwn some of the nodes, then for the rest of the nodes, calculate their po
 ````
 
 #### GEM Force Directed Layout:
-Another way to make planer graphs, is called GEM. 
+Another way to make planer graphs, is called GEM.
 we can see an example here:
 
 (photo: GEM.jpg)
@@ -239,7 +240,7 @@ we can see the sample here:  photo: graph-simplification.jpg
 
 In this way, we put all the nodes in a ring. Then we draw the edges between the nodes, inside the ring.
 
-This example show this method. The shape on the left side, shows the emails between 132 employees on a month. 
+This example show this method. The shape on the left side, shows the emails between 132 employees on a month.
 
 (photo: edge-bundle.jpg)
 
@@ -249,13 +250,13 @@ In order to group some the edges together to form __Wire Bundles__, we need to f
 
 Then inside the graph, there will be __Community Nodes__ that are not part of the original graph, but they show merging of the nodes in each community.
 
-Example: 
+Example:
 
 photo: edge-bundle-ezample-1.jpg
 
 edge-bundle-ezample-2.JPG
 
-__Filtering Edge Bundle:__ By using edge bundles, we can filter the relationships between different nodes, and it give very good information on what's going on in the dataset. 
+__Filtering Edge Bundle:__ By using edge bundles, we can filter the relationships between different nodes, and it give very good information on what's going on in the dataset.
 
 (photo: filtering-edge-bundle.jpg)
 
@@ -264,7 +265,7 @@ __Filtering Edge Bundle:__ By using edge bundles, we can filter the relationship
 
 Tree map is a very useful method to show hierarchical relationships.
 
-photo: tree-map.jpg & tree-example-1.jpg  & tree-example-2.JPG 
+photo: tree-map.jpg & tree-example-1.jpg  & tree-example-2.JPG
 
 
 __Here is how we draw and treemap based on a tree graph:__
@@ -275,4 +276,40 @@ Also, this photo shows how we calculate the contribution ratio of each node:
 
 photo: treemap-calculation.jpg
 
-Tree maps are good to show hierarchical relationships, but not great for ordinal relationships. 
+Tree maps are good to show hierarchical relationships, but not great for ordinal relationships.
+### Principal Component Analysis:
+We had this in Machine Learning with Coursera(reducing the features of the dataset), but according to the lecturer here, there are packages that already do it for us and we don't have to know the details in order to be able to use this technique.
+In order to do this technique we need to take the date and subtract the mean from them. it will give us the __Covariance Matrix.__
+(photo:covariance=matrix.jpg )
+    - Covariance matrix is a symmetric matrix.
+Principal Component analysis, keeps the data that keeps the most effect in the variance and gets rid of the ones with least influence.
+(photo:princile-component-analysis.jpg)
+
+__Multidimensional Scaling:__
+It is another way of dimensionality reduction method.
+__Metric MDS:__ Multidimensional Scaling: when you try to preserve the distance between data points.
+(photo:MDS.jpg)
+
+##### Packing:
+sometimes we want to have a visualization that shows the data points but not just as points. we want them as different shapes.
+
+One of the examples is a map called __Word Cloud__. here is a good website that makes this: [wrodle.net](http://www.wordle.net/)
+
+###### example:
+(photo: word-cloud.jpg) The most used words are shown larger than the others.
+
+When we have circles as data points we can have the size of the points relevant to the quantity. this example shows the population of each country: packing-example.jpg.
+
+##### Cartogram:
+there is an example of it here: cartogram.jpg
+
+How to make cartograms?
+
+We scale each  area as much as their density. then the corners of the areas with start disconnecting. we need to calculate the new corners by finding the average of all points that make the intersection and find new corners.
+here is the photo: creating-cartogram.jpg
+
+##### Choropleth:
+
+This type is so popular and we can see them everywhere. It shows the density by color saturation.
+
+(photo: choropleth.jpg)
